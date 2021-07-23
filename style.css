@@ -1,107 +1,176 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-:root{
-    --color-black :  #363f5f;
+:root {
+  --color-black: #363f5f;
 }
-body{
-    background-color: #f0f2f5;
-    font-family: 'Poppins', sans-serif;
+body {
+  background-color: #f0f2f5;
+  font-family: "Poppins", sans-serif;
 }
-.container{
-    width: min(90vw, 800px);
-    margin: auto;
+html {
+  font-size: 93.75%;
 }
-h2{
-    margin-top: 3.2rem;
-    margin-bottom: 0.8rem;
-    font-weight: normal;
-    color: var(--color-black);
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
-header{
-    background-color: #2d4a22;
-    padding: 2rem 0 10rem;
-    text-align: center;
-}
-#logo{
-    color: #fff;
-    font-weight: 100;
-}
-#balance{
-    margin-top: -8rem;
-}
-#balance h2{
-    color: #fff;
-    margin-top: 0;
+.container {
+  width: min(90vw, 800px);
+  margin: auto;
 }
 
-.card{
-    background-color: #fff;
-    padding: 1.5rem 2rem;
-    border-radius: 0.25rem;
-    margin-bottom: 2rem;
-    color: var(--color-black);
+h2 {
+  margin-top: 3.2rem;
+  margin-bottom: 0.8rem;
+  font-weight: normal;
+  color: var(--color-black);
 }
-.card h3{
-    font-weight: normal;
-    font-size: 1rem;
+a {
+  color: #49aa26;
+  text-decoration: none;
 }
-.card p{
-    font-size: 2rem;
-    line-height: 3rem;
-    margin-top: 1rem;
+a:hover {
+  color: #3dd705;
 }
-.card.total{
-     background-color: #49aa26;
-     color: #fff;
+.button.new {
+  margin-bottom: 0.8rem;
+  display: inline-block;
+}
+header {
+  background-color: #2d4a22;
+  padding: 2rem 0 10rem;
+  text-align: center;
+}
+#logo {
+  color: #fff;
+  font-weight: 100;
+}
+#balance {
+  margin-top: -8rem;
+}
+#balance h2 {
+  color: #fff;
+  margin-top: 0;
+}
 
+.card {
+  background-color: #fff;
+  padding: 1.5rem 2rem;
+  border-radius: 0.25rem;
+  margin-bottom: 2rem;
+  color: var(--color-black);
 }
-#data-table{
-    width: 100%;
-    border-spacing: 0 0.5rem;
-    color: #969cb3;
+.card h3 {
+  font-weight: normal;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-table td{
-    background-color: white;
-    padding: 1rem 2rem;
+.card p {
+  font-size: 2rem;
+  line-height: 3rem;
+  margin-top: 1rem;
 }
-table th{
-    background-color: white;
-    font-weight: normal;
-    padding: 1rem 2rem;
-    text-align: left;
+.card.total {
+  background-color: #49aa26;
+  color: #fff;
+}
+#transaction {
+  display: block;
+  overflow-x: auto;
+  width: 100%;
+}
+#data-table {
+  width: 100%;
+  border-spacing: 0 0.5rem;
+  color: #969cb3;
+}
+table td {
+  background-color: white;
+  padding: 1rem 2rem;
+}
+table th {
+  background-color: white;
+  font-weight: normal;
+  padding: 1rem 2rem;
+  text-align: left;
 }
 
 table thead tr:first-child,
-table tbody tr td:first-child{
-    border-radius: 0.25rem 0 0 0.25rem;
+table tbody tr td:first-child {
+  border-radius: 0.25rem 0 0 0.25rem;
+}
+table tbody tr {
+  opacity: 0.7;
+}
+table tbody tr:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+td.description {
+  color: var(--color-black);
+}
+td.income {
+  color: #12a454;
+}
+td.expense {
+  color: #e92929;
+}
+.modal-overlay {
+  width: 100%;
+  height: 100%;
 
-}
-table tbody tr{
-    opacity: 0.7;
-}
-table tbody tr:hover{
-    opacity: 1;
-    cursor: pointer;
-}
-td.description{
-    color: var(--color-black);
-}
-td.income{
-    color: #12a454;
-}
-td.expense{
-    color:#e92929;
-}
-#transaction{
+  background-color: rgba(0, 0, 0, 0.7);
 
-}
-footer{
-    text-align: center;
-    padding: 4rem 0 2rem;
-    color:var(--color-black);
-    opacity: 0.6;
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 999;
 }
 
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background: #f0f2f5;
+  padding: 2.4rem;
+
+  position: relative;
+  z-index: 1;
+}
+footer {
+  text-align: center;
+  padding: 4rem 0 2rem;
+  color: var(--color-black);
+  opacity: 0.6;
+}
+@media (min-width: 800px) {
+  html {
+    font-size: 87.5%;
+  }
+  #balance {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
